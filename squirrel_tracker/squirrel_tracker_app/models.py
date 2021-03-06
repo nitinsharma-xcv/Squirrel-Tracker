@@ -8,10 +8,10 @@ class Squirrel(models.Model):
     AM, PM = 'AM', 'PM'
     SHIFT_CHOICES = ((AM, 'AM'), (PM, 'PM'))
 
+    x = models.FloatField('X', help_text='Geo Latitude')
+    y = models.FloatField('Y', help_text='Geo Longitude')
     unique_squirrel_id = models.CharField('Unique Squirrel ID', max_length=255, primary_key=True,
                                           help_text='Squirrel Identifier')
-    x = models.FloatField('Latitude', help_text='Geo Latitude')
-    y = models.FloatField('Longitude', help_text='Geo Longitude')
     hectare = models.CharField('Hectare', max_length=255, help_text='Park Hectare Identifier')
     shift = models.CharField('Shift', max_length=2, choices=SHIFT_CHOICES)
     date = models.DateField('Date')
