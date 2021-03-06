@@ -16,21 +16,21 @@ class Squirrel(models.Model):
     shift = models.CharField('Shift', max_length=2, choices=SHIFT_CHOICES)
     date = models.DateField('Date')
     hectare_squirrel_number = models.IntegerField('Hectare Squirrel Number')
-    age = models.CharField('Age', max_length=255)
-    primary_fur_color = models.CharField('Primary Fur Color', max_length=255)
-    highlight_fur_color = models.CharField('Highlight Fur Color', max_length=255)
+    age = models.CharField('Age', max_length=255, blank=True)
+    primary_fur_color = models.CharField('Primary Fur Color', max_length=255, blank=True)
+    highlight_fur_color = models.CharField('Highlight Fur Color', max_length=255, blank=True)
     combination_of_primary_and_highlight_color = models.CharField('Combination of Primary and Highlight Color',
-                                                                  max_length=255)
-    color_notes = models.CharField('Color notes', max_length=255)
-    location = models.CharField('Location', max_length=255)
-    above_ground_sighter_measurement = models.CharField('Above Ground Sighter Measurement', max_length=255)
-    specific_location = models.CharField('Specific Location', max_length=255)
+                                                                  max_length=255, blank=True)
+    color_notes = models.CharField('Color notes', max_length=255, blank=True)
+    location = models.CharField('Location', max_length=255, blank=True)
+    above_ground_sighter_measurement = models.CharField('Above Ground Sighter Measurement', max_length=255, blank=True)
+    specific_location = models.CharField('Specific Location', max_length=255, blank=True)
     running = models.BooleanField('Running')
     chasing = models.BooleanField('Chasing')
     climbing = models.BooleanField('Climbing')
     eating = models.BooleanField('Eating')
     foraging = models.BooleanField('Foraging')
-    other_activities = models.CharField('Other Activities', max_length=255)
+    other_activities = models.CharField('Other Activities', max_length=255, blank=True)
     kuks = models.BooleanField('Kuks')
     quaas = models.BooleanField('Quaas')
     moans = models.BooleanField('Moans')
@@ -39,4 +39,12 @@ class Squirrel(models.Model):
     approaches = models.BooleanField('Approaches')
     indifferent = models.BooleanField('Indifferent')
     runs_from = models.BooleanField('Runs from')
-    other_interactions = models.CharField('Other Interactions', max_length=255)
+    other_interactions = models.CharField('Other Interactions', max_length=255, blank=True)
+
+    @property
+    def lat_long(self):
+        """Returns Latitude and Longitude of Squirrel Sighting"""
+        return f'POINT ({self.x} {self.y})'
+
+    def __str__(self):
+        return f'<ID: {self.unique_squirrel_id}> {self.lat_long}'
