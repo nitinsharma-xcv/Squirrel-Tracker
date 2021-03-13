@@ -17,7 +17,6 @@ class Command(BaseCommand):
 
         try:
             file_path = options['file_path']
-            #####
             vals = Squirrel.objects.all().values()
             df = pd.DataFrame(list(vals))
             df.columns = [c.replace('_', ' ').title() for c in df.columns]
@@ -26,28 +25,6 @@ class Command(BaseCommand):
             df['Date'] = df['Date'].apply(lambda d: d.strftime('%m%d%Y'))
             df.to_csv(file_path, index=False)
 
-            breakpoint()
-        #####
-
-
-            with open(file_path, 'w') as f:
-                open_to_write = csv.writer(f)
-                fields = [field.name for field in Squirrel._meta.fields]
-                field_type = [(type(field), field.name, field) for field in Squirrel._meta.fields]
-
-                custom_field_name = [fi.replace('_', ' ').title() for fi in fields]
-                open_to_write.writerow(custom_field_name)
-
-                for i in Squirrel.objects.all():
-                    row = []
-                    for field in field_type:
-                        if field[2].get_internal_type() == 'BooleanField':
-                            row.append(str(getattr(i, field[1])).upper())
-                        else:
-                            row.append(str(getattr(i, field[1])))
-                    # row = [str(getattr(i, field[1])) if field[2].get_internal_type() != 'BooleanField' else str(getattr(i, field[1])).upper() for field in type_ ]
-                    open_to_write.writerow(row)
-                f.close()
         except Exception as e:
             raise CommandError('Error', e)
 
