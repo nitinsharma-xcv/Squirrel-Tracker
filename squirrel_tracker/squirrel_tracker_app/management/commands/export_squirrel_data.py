@@ -7,6 +7,7 @@ import csv
 from ...models import Squirrel
 import pandas as pd
 
+
 class Command(BaseCommand):
     help = 'Command to export squirrel data to csv'
 
