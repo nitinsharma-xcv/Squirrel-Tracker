@@ -40,11 +40,7 @@ class Squirrel(models.Model):
     indifferent = models.BooleanField('Indifferent')
     runs_from = models.BooleanField('Runs from')
     other_interactions = models.CharField('Other Interactions', max_length=255, blank=True)
-
-    @property
-    def lat_long(self):
-        """Returns Latitude and Longitude of Squirrel Sighting"""
-        return f'POINT ({self.x} {self.y})'
+    lat_long = models.CharField('Lat/Long', max_length=255, blank=True)
 
     def __str__(self):
         return f'<ID: {self.unique_squirrel_id}> {self.lat_long}'
