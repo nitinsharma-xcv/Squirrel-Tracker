@@ -1,6 +1,7 @@
 # import_squirrel_data.py
 # Created on Mar 05, 2021 
-# Author(s): Nitin Sharma (ns3493) <nitin.sharma@columbia.edu>
+# Author(s): Nitin Sharma (ns3493) <nitin.sharma@columbia.edu>,
+#            Niharika Prasad (np2781) <niharika.prasad@columbia.edu>
 
 from datetime import datetime
 import csv
@@ -61,7 +62,8 @@ class Command(BaseCommand):
                     approaches=to_bool(record['Approaches']),
                     indifferent=to_bool(record['Indifferent']),
                     runs_from=to_bool(record['Runs from']),
-                    other_interactions=record['Other Interactions']
+                    other_interactions=record['Other Interactions'],
+                    lat_long=record['Lat/Long']
                 )
                 instance.save()
             except Exception as e:
