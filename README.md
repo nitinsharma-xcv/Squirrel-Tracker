@@ -3,6 +3,7 @@
 
 ## Introduction
 The project is a web application, developed with Django framework of Python. In this application, user can import the 2018 Central Park Squirrel Census data and add, update, and view squirrel data
+
 Developed using Python 3.8.8
 
 ## DataSet
