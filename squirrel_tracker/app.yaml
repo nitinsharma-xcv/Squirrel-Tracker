@@ -1,8 +1,19 @@
 runtime: python38
 
 handlers:
-- url: /static
-  static_dir: static
+    # This configures Google App Engine to serve the files in the app's
+    # static directory.
+     - url: /static
+       static_dir: collecstatic
 
-- url: /.*
-  script: auto
+     - url: /.*
+       script: auto
+
+env_variables:
+    INSTANCE_CONNECTION_NAME: 'squirreltracker-ns3493-np2781:us-east4:squirrel'
+    PGDATABASE: 'postgres'
+    PGUSER: 'postgres'
+    PGPASSWORD: 'password'
+    SECRET_KEY: 'b@f!w3w6fbmxjh9gl*7y))@&q^om9(18ttoeu7#q+1l$n0dbrr'
+    GS_BUCKET_NAME: 'squirreltracker-ns3493-np2781.appspot.com'
+    GOOGLE_APPLICATION_CREDENTIALS: 'service-account-key.json'
