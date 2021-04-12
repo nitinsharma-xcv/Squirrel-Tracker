@@ -1,3 +1,8 @@
+service-account-key.json
+app.yaml
+cloud_sql_proxy
+
+
 .DS_Store
 .idea/
 
@@ -106,6 +111,7 @@ celerybeat.pid
 
 # Environments
 .env
+.env-common
 .venv
 env/
 venv/
