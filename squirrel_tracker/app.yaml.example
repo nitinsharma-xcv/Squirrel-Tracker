@@ -14,6 +14,6 @@ env_variables:
     PGDATABASE: 'postgres'
     PGUSER: 'postgres'
     PGPASSWORD: 'password'
-    SECRET_KEY: 'b@f!w3w6fbmxjh9gl*7y))@&q^om9(18ttoeu7#q+1l$n0dbrr'
+    SECRET_KEY: 'secret_key'
     GS_BUCKET_NAME: 'squirreltracker-ns3493-np2781.appspot.com'
     GOOGLE_APPLICATION_CREDENTIALS: 'service-account-key.json'
