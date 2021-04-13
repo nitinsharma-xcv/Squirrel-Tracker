@@ -2,12 +2,6 @@ from django import forms
 from .models import Squirrel
 
 
-class SquirrelForm(forms.ModelForm):
-    class Meta:
-        model = Squirrel
-        fields = '__all__'
-
-
 class SquirrelFormUpdate(forms.ModelForm):
     class Meta:
         model = Squirrel

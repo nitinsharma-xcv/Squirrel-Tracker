@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Squirrel
-from .form import SquirrelFormUpdate, SquirrelFormAdd, SquirrelForm
+from .form import SquirrelFormUpdate, SquirrelFormAdd
 from django.shortcuts import get_object_or_404
 from django.db.models import Avg, Min, Max, Count
 
