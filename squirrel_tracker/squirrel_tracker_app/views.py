@@ -1,17 +1,24 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Squirrel
 from .form import SquirrelFormUpdate, SquirrelFormAdd
 from django.shortcuts import get_object_or_404
 from django.db.models import Avg, Min, Max, Count
-
+from random import sample
 
 def index(request):
     return render(request, 'squirrel_tracker_app/index.html', {})
 
 
+def squirrel_details(request, unique_squirrel_id):
+    squirrel = get_object_or_404(Squirrel, unique_squirrel_id=unique_squirrel_id)
+    context = {'squirrel': squirrel}
+    return render(request, 'squirrel_tracker_app/squirrel_details.html', context)
+
+
 def map_view(request):
     DEFAULT_LIMIT = 100
-    coordinates = Squirrel.objects.values('x', 'y')[:DEFAULT_LIMIT]
+    coordinates = sample(list(Squirrel.objects.values('x', 'y')), DEFAULT_LIMIT)
     context = {'coordinates': coordinates}
     return render(request, 'squirrel_tracker_app/map.html', context)
 

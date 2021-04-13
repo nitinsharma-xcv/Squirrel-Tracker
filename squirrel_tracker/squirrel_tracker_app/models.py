@@ -15,7 +15,7 @@ class Squirrel(models.Model):
     hectare = models.CharField('Hectare', max_length=255, help_text='Park Hectare Identifier')
     shift = models.CharField('Shift', max_length=2, choices=SHIFT_CHOICES)
     date = models.DateField('Date')
-    hectare_squirrel_number = models.IntegerField('Hectare Squirrel Number')
+    hectare_squirrel_number = models.IntegerField('Hectare Squirrel Number', null=True, blank=True)
     age = models.CharField('Age', max_length=255, blank=True)
     primary_fur_color = models.CharField('Primary Fur Color', max_length=255, blank=True)
     highlight_fur_color = models.CharField('Highlight Fur Color', max_length=255, blank=True)

@@ -2,11 +2,11 @@
 {% block title %}Sightings{% endblock %}
 {% block content %}
 <div class="p-3">
-<a href="/sightings/add/"><button type="button" class="btn btn-success btn-lg">Add Sighting</button></a><br><br>
+<a href="{% url 'add' %}"><button type="button" class="btn btn-success btn-lg">Add Sighting</button></a><br><br>
 
 <div>
   <h4>Sightings</h4>
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover table-bordered">
   <tr>
     <th>Unique Squirrel ID</th>
     <th>Date</th>
@@ -16,7 +16,7 @@
       <tr>
         <td>{{ squirrel.unique_squirrel_id }}</td>
         <td>{{ squirrel.date }}</td>
-        <td><a href="/sightings/{{ squirrel.unique_squirrel_id }}">Click Here</a></td>
+        <td><a href="{% url 'squirrel_details' squirrel.unique_squirrel_id %}">View</a></td>
       </tr>
     {% endfor %}
 </table>
