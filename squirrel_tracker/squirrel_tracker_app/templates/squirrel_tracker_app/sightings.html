@@ -6,20 +6,20 @@
 </head>
 <body>
     <div>
-	<h2><a href="/sightings/add/">Add a new sighting</a></h2>
+	<h2><a href={% url 'add' %}>Add a new sighting</a></h2>
 	</div>
 	<div>
     <table>
       <tr>
         <th>unique_squirrel_id</th>
         <th>date</th>
-        <th>Link to Squirrel</th>
+        <th>Link to Update Squirrel</th>
       </tr>
 	    {% for squirrel in squirrels %}
           <tr>
-		    <td>{{ squirrel.unique_squirrel_id }}</td>
+            <td><a href='{% url 'squirrel_details' squirrel.unique_squirrel_id %}'>{{ squirrel.unique_squirrel_id }}</a></td>
             <td>{{ squirrel.date }}</td>
-            <td><a href="/sightings/{{ squirrel.unique_squirrel_id }}">Click Here</a></td>
+            <td><a href='{% url 'update' squirrel.unique_squirrel_id %}'>Update {{ squirrel.unique_squirrel_id }}</a></td>
           </tr>
 	    {% endfor %}
     </table>
