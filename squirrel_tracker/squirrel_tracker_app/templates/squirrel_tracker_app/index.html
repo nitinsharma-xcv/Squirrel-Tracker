@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Squirrel Tracker</title>
-</head>
-<body>
-<a href="{% url 'map' %}">See sightings on map</a>
-</body>
-</html>
+{% extends "squirrel_tracker_app/base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+     
+<div class="container-fluid">
+  <img src="https://static.wikia.nocookie.net/disney/images/8/8b/Chip_n%27_Dale.png">
+</div>
+
+{% endblock %}
