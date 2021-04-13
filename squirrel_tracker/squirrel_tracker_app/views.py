@@ -11,9 +11,9 @@ def index(request):
 
 
 def squirrel_details(request, unique_squirrel_id):
-    obj = get_object_or_404(Squirrel, unique_squirrel_id=unique_squirrel_id)
-    form = SquirrelForm(request.POST or None, instance=obj)
-    return render(request, 'squirrel_tracker_app/squirrel_details.html', {'form': form})
+    squirrel = get_object_or_404(Squirrel, unique_squirrel_id=unique_squirrel_id)
+    context = {'squirrel': squirrel}
+    return render(request, 'squirrel_tracker_app/squirrel_details.html', context)
 
 
 def map_view(request):
