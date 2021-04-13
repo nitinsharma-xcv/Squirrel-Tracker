@@ -1,15 +1,15 @@
 {% extends "squirrel_tracker_app/base.html" %}
 {% block title %}Sightings{% endblock %}
 {% block content %}
+<div class="p-3">
+<a href="/sightings/add/"><button type="button" class="btn btn-success btn-lg">Add Sighting</button></a><br><br>
 
 <div>
-<h2><a href="/sightings/add/">Add a new sighting</a></h2>
-</div>
-<div>
-<table>
+  <h4>Sightings</h4>
+<table class="table table-striped table-hover">
   <tr>
-    <th>unique_squirrel_id</th>
-    <th>date</th>
+    <th>Unique Squirrel ID</th>
+    <th>Date</th>
     <th>Link to Squirrel</th>
   </tr>
     {% for squirrel in squirrels %}
@@ -21,5 +21,5 @@
     {% endfor %}
 </table>
 </div>
-
+</div>
 {% endblock %}

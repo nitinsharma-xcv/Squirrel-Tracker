@@ -8,3 +8,4 @@ six==1.15.0
 sqlparse==0.4.1
 django-storages[google]==1.9.1
 psycopg2-binary==2.8.5
+django-crispy-forms==1.11.2
