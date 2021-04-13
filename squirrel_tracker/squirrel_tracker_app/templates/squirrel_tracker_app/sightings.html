@@ -16,7 +16,7 @@
       <tr>
         <td>{{ squirrel.unique_squirrel_id }}</td>
         <td>{{ squirrel.date }}</td>
-        <td><a href="{% url 'squirrel_details' squirrel.unique_squirrel_id %}">View</a></td>
+        <td><a href="{% url 'details' squirrel.unique_squirrel_id %}">View</a></td>
       </tr>
     {% endfor %}
 </table>

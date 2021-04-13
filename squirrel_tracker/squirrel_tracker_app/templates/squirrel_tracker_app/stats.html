@@ -1,26 +1,118 @@
 {% extends "squirrel_tracker_app/base.html" %}
 {% block title %}Stats{% endblock %}
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+{% endblock %}
 {% block content %}
+<div class="p-3">
+<h2>Stat #1 - Activities by Shift (AM/PM)</h2>
+<canvas id="chart1" style="display: block; height: 250px; width: 1000px;"></canvas>
+<script type="text/javascript">
+	var ctx = document.getElementById('chart1').getContext('2d');
+	var chart = new Chart(ctx, {
+	    type: 'bar',
+	    data: {
+	        labels: {{stat1.labels|safe}},
+	        datasets: [{
+	            label: 'AM',
+	            data: {{stat1.AM_values|safe}},
+	            backgroundColor: 'rgb(0, 255, 255)'
+	        },
+	        {
+	            label: 'PM',
+	            data: {{stat1.PM_values|safe}},
+	            backgroundColor: 'rgb(0, 0, 255)'
+	        }]
+	    },
+	    options: {}
+	})
+</script>
+<br><br>
 
-In this data set, we have a total of {{total_squirrels}} observations.
-      		<br>
-<ul>
-	<li>Latitiude：The minimum latitude is {{latitude.minimum}}</li>
-	<li>Latitiude：The Maximum latitude is {{latitude.maximum}}</li>
-	<li>Latitiude：The average latitude is {{latitude.avg}}</li>
-	<br>
-	<li>Longitude：The minimum longitude is {{longitude.minimum}}</li>
-	<li>Longitude：The maximum longitude is {{longitude.maximum}}</li>
-	<li>Longitude：The average latitude is {{longitude.avg}}</li>
-	<br>
-	<li>age: {{age}}</li>
-	<br>
-	<li>data dates from  {{date.minimum}} to {{date.maximum}}</li>
-	<br>
-	<li>shift: {{shift}}</li>
-	<br>
-	  <li>Running: {{running}}</li>
-	<br>
-	<li>Primary_fur_color: {{primary_fur_color}}</li></ul>
-</ul>
+<h2>Stat #2 - Primary Fur Colors</h2>
+<canvas id="chart2" style="display: block; height: 250px; width: 1000px;"></canvas>
+<script type="text/javascript">
+	var ctx = document.getElementById('chart2').getContext('2d');
+	var chart = new Chart(ctx, {
+	    type: 'pie',
+	    data: {
+	        labels: {{stat2.colors|safe}},
+	        datasets: [{
+	            label:'one',
+	            data: {{stat2.count|safe}},
+	            backgroundColor:{{stat2.colors_rgb|safe}}
+	        }],
+	    },
+	    options: {}
+	})
+</script>
+<br><br>
+
+<h2>Stat #3 - Highlight Fur Color</h2>
+<canvas id="chart3" style="display: block; height: 250px; width: 1000px;"></canvas>
+<script type="text/javascript">
+	var ctx = document.getElementById('chart3').getContext('2d');
+	var chart = new Chart(ctx, {
+	    type: 'doughnut',
+	    data: {
+	        labels: {{stat3.colors|safe}},
+	        datasets: [{
+	            label:'one',
+	            data: {{stat3.count|safe}},
+	            backgroundColor:{{stat3.colors_rgb|safe}}
+	        }],
+	    },
+	    options: {}
+	})
+</script>
+<br><br>
+<h2>Stat #4 - Activities by population% among Adults and Juvenile</h2>
+<canvas id="chart4" style="display: block; height: 250px; width: 1000px;"></canvas>
+<script type="text/javascript">
+	var ctx = document.getElementById('chart4').getContext('2d');
+	var chart = new Chart(ctx, {
+	    type: 'bar',
+	    data: {
+	        labels: {{stat4.labels|safe}},
+	        datasets: [{
+	            label: 'Adult',
+	            data: {{stat4.adult_values|safe}},
+	            backgroundColor: 'rgb(255, 0, 0)'
+	        },
+	        {
+	            label: 'Juvenile',
+	            data: {{stat4.juvenile_values|safe}},
+	            backgroundColor: 'rgb(255, 165, 0)'
+	        }]
+	    },
+	    options: {}
+	})
+</script>
+<br><br>
+<h2>Stat #5 - Top 30 out of {{stat5.total_hectare}} Hectares by Sightings(AM/PM)</h2>
+<canvas id="chart5" style="display: block; height: 500px; width: 1000px;"></canvas>
+<script type="text/javascript">
+	var ctx = document.getElementById('chart5').getContext('2d');
+	var chart = new Chart(ctx, {
+	    type: 'radar',
+	    data: {
+	        labels: {{stat5.hectare|safe}},
+	        datasets: [{
+	            label: 'Sightings',
+	            data: {{stat5.count|safe}},
+	            backgroundColor: 'rgb(0, 255, 255)'
+	        }]
+	    },
+	    options: {
+        scale: {
+                display: true,
+                ticks: {
+                    min: 10
+                }
+        }
+    }
+	})
+</script>
+<br>
+</div>
 {% endblock %}
