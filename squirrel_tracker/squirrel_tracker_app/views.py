@@ -10,11 +10,6 @@ def index(request):
     return render(request, 'squirrel_tracker_app/index.html', {})
 
 
-def squirrel_details2(request, unique_squirrel_id):
-    squirrel = Squirrel.objects.get(unique_squirrel_id=unique_squirrel_id)
-    context = {'squirrel': squirrel}
-    return render(request, 'squirrel_tracker_app/squirrel_details.html', context)
-
 def squirrel_details(request, unique_squirrel_id):
     obj = get_object_or_404(Squirrel, unique_squirrel_id=unique_squirrel_id)
     form = SquirrelForm(request.POST or None, instance=obj)
