@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2018 Central Park Squirrel Census</title>
+</head>
+<body>
+    <div>
+	<h2><a href="/sightings/add/">Add a new sighting</a></h2>
+	</div>
+	<div>
+    <table>
+      <tr>
+        <th>unique_squirrel_id</th>
+        <th>date</th>
+        <th>Link to Squirrel</th>
+      </tr>
+	    {% for squirrel in squirrels %}
+          <tr>
+		    <td>{{ squirrel.unique_squirrel_id }}</td>
+            <td>{{ squirrel.date }}</td>
+            <td><a href="/sightings/{{ squirrel.unique_squirrel_id }}">Click Here</a></td>
+          </tr>
+	    {% endfor %}
+    </table>
+	</div>
+</body>
+</html>
