@@ -1,13 +1,16 @@
 # IEOR E4501: Tools for Analytics Project
 # Squirrel-Tracker
 
+## Installation and Demo
+[![](markdown.jpg)](https://youtu.be/6AAMKGaCC6I)
+
 ## Introduction
 The project is a web application, developed with Django framework of Python. In this application, user can import the 2018 Central Park Squirrel Census data and add, update, and view squirrel data
 
 Developed using Python 3.8.8
 
 ## Background
-Eccentric billionaire Joffrey Hosencratz just purchased the web development company you work for. You’ve met him once in an elevator and he was impressed with your skill in developing web applications with the ``Django`` framework. He also relayed that his most recent trip to Sedona, AZ has left him in a bit of trouble. See, he fancies the show Rick and Morty and a particular scene coupled with a traumatic childhood squirrel experience and a bad crystal bath experience in Sedona as left him wanting. 
+Eccentric b``illionaire Joffrey Hosencratz just purchased the web development company you work for. You’ve met him once in an elevator and he was impressed with your skill in developing web applications with the ``Django`` framework. He also relayed that his most recent trip to Sedona, AZ has left him in a bit of trouble. See, he fancies the show Rick and Morty and a particular scene coupled with a traumatic childhood squirrel experience and a bad crystal bath experience in Sedona as left him wanting. 
 
 He would like to start keeping track of all the known squirrels and plans to start with Central Park. He’s asked you to build an application that can import the 2018 Central Park Squirrel Census data and allow his team to add, update, and view squirrel data. 
 
@@ -31,10 +34,10 @@ The project should be Django based should have the following features:
 -	Views:
 
 	 - A view that shows a map that displays the location of the squirrel sightings on an OpenStreets map.
-	 - A view that lists all squirrel sightings with links to view each sighting
-	 - A view to update a particular sighting
-	 - A view to create a new sighting
-	 - A view with general stats about the sightings
+	 - A view that lists all squirrel sightings with links to view each sighting.
+	 - A view to update a particular sighting.
+	 - A view to create a new sighting.
+	 - A view with general stats about the sightings.
 
 
 ## Server Application Link:
@@ -49,7 +52,7 @@ The project should be Django based should have the following features:
 
 ## Contributors
 
-### Project Group 27
+### Project Group 46
 UNIs: [np2781, ns3493]
 
 Alphabetical list of Contributors:
