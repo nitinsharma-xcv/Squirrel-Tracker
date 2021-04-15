@@ -21,11 +21,11 @@ The project should be Django based should have the following features:
 
   Import: A command that can be used to import the data from the 2018 census file (in CSV format). The file path should be specified at the command line after the name of the management command. 
   
-  ```$ python manage.py import_squirrel_data data.csv```
+  ```$ python manage.py import_squirrel_data <file_path>```
 
   Export: A command that can be used to export the data in CSV format. The file path should be specified at the command line after the name of the management command. 
   
-  ```$ python manage.py export_squirrel_data export.csv```
+  ```$ python manage.py export_squirrel_data <file_path>```
 
 
 -	Views:
@@ -43,10 +43,14 @@ The project should be Django based should have the following features:
    - Map: https://squirreltracker-ns3493-np2781.uk.r.appspot.com/map/
    - Add new sighting: https://squirreltracker-ns3493-np2781.uk.r.appspot.com/sightings/add/
    - Edit a particular sighting: https://squirreltracker-ns3493-np2781.uk.r.appspot.com/sightings/ {Unique Squirrel ID}/
+   - Stats of sightings: https://squirreltracker-ns3493-np2781.uk.r.appspot.com/sightings/stats/
 
 
 
 ## Contributors
+
+### Project Group 27
+UNIs: [np2781, ns3493]
 
 Alphabetical list of Contributors:
 
